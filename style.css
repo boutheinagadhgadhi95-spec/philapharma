@@ -746,4 +746,19 @@ footer {
     .product-info {
         justify-content: flex-start;
     }
+    /* --- NOUVEAUX STYLES POUR LE PANIER --- */
+.free-shipping {
+    color: #2ecc71 !important; /* Vert pour la mention GRATUIT */
+    font-weight: bold;
+}
+
+.empty-cart-message {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 18px;
+    color: var(--color-text-gray);
+}
+.empty-cart-message a {
+    font-weight: bold;
+}
 }
