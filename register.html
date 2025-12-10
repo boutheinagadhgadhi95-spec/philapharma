@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilaPharma : Inscription et Connexion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="promo-bar">
+        <div class="promo-bar-content">
+            <span>🚚 LIVRAISON GRATUITE partout en Tunisie dès 99 DT ! | Code : PHARMA10</span>
+        </div>
+    </header>
+
+    <header class="main-header">
+        <div class="container main-header-content">
+            <a href="index.html" class="logo">PhilaPharma</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="#">Produits</a></li>
+                    <li><a href="#">Promotions</a></li>
+                    <li><a href="#">Conseils</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="register.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="page-content">
+        <div class="container form-container fade-in-section">
+            <h2>Créer un Compte PhilaPharma</h2>
+
+            <form action="#" method="post" class="auth-form">
+                <div class="form-group">
+                    <label for="full_name">Nom Complet</label>
+                    <input type="text" id="full_name" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresse Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de Passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirmer le Mot de Passe</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <button type="submit" class="btn-primary">S'inscrire</button>
+            </form>
+
+            <p class="switch-link">
+                Vous avez déjà un compte ? <a href="#">Connectez-vous ici.</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col about-us">
+                <h4>À Propos de PhilaPharma</h4>
+                <p>PhilaPharma est votre référence en Tunisie pour des produits de santé et de beauté certifiés.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col support">
+                <h4>Aide & Support</h4>
+                <ul>
+                    <li><a href="#">FAQ / Questions Fréquentes</a></li>
+                    <li><a href="#">Politique de Livraison</a></li>
+                    <li><a href="#">Retours & Échanges</a></li>
+                    <li><a href="#">Conditions Générales de Vente (CGV)</a></li>
+                    <li><a href="#">Suivre ma commande</a></li>
+                </ul>
+            </div>
+            <div class="footer-col newsletter">
+                <h4>Newsletter & Contact</h4>
+                <p>Recevez nos conseils santé et nos offres exclusives.</p>
+                <form action="#" method="post" class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit" class="btn-primary">S'inscrire</button>
+                </form>
+                <p class="contact-info">
+                    📞 +216 XX XXX XXX (Service Client)<br>
+                    📧 contact@philapharma.tn
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                 <p>&copy; 2025 PhilaPharma. Tous droits réservés.</p>
+                 <div class="payment-icons">
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                 </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script> 
+</body>
+</html>
