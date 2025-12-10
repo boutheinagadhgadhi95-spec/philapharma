@@ -6,8 +6,45 @@
     <title>PhilaPharma : Votre Panier</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* إضافة تنسيقات CSS لزر الحذف هنا مباشرةً */
+        .btn-secondary {
+            width: 100%;
+            text-align: center;
+            background-color: transparent;
+            color: #e74c3c; /* لون أحمر لتوضيح أنه حذف */
+            border: 1px solid #e74c3c;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px; /* فصله عن زر الدفع */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 16px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e74c3c;
+            color: #fff;
+            border-color: #e74c3c;
+        }
+        
+        .free-shipping {
+            color: #2ecc71 !important; /* Vert pour la mention GRATUIT */
+            font-weight: bold;
+        }
+        
+        .empty-cart-message {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 18px;
+            color: var(--color-text-gray);
+        }
+    </style>
 </head>
 <body>
+
     <header class="promo-bar">
         <div class="promo-bar-content">
             <span>🚚 LIVRAISON GRATUITE partout en Tunisie dès 99 DT ! | Code : PHARMA10</span>
@@ -16,10 +53,7 @@
 
     <header class="main-header">
         <div class="container main-header-content">
-            <a href="index.html" class="logo">
-                PhilaPharma
-            </a>
-
+            <a href="index.html" class="logo">PhilaPharma</a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
@@ -29,87 +63,58 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-
             <div class="header-icons">
                 <a href="#"><i class="fas fa-search"></i></a>
                 <a href="register.html"><i class="fas fa-user"></i></a>
-                <a href="cart.html" class="cart-icon">
+                <a href="cart.html" class="cart-icon active-link">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count">0</span>
                 </a>
             </div>
         </div>
     </header>
-
-    <header class="promo-bar">
-        <div class="promo-bar-content">
-            <span>🚚 LIVRAISON GRATUITE partout en Tunisie dès 99 DT ! | Code : PHARMA10</span>
-        </div>
-    </header>
-    <section class="page-content cart-page">
+    <section class="page-content">
         <div class="container fade-in-section">
-            <h2>Votre Panier d'Achat</h2>
-
-            <div class="cart-layout">
+            <h1>Votre Panier d'Achats</h1>
+            
+            <div class="cart-container">
                 <div class="cart-items">
-    <table class="cart-table">
-        <thead>
-            <tr>
-                <th>Produit</th>
-                <th>Prix Unitaire</th>
-                <th>Quantité</th>
-                <th>Total</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            </tbody>
-    </table>
-</div>
-                
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Prix Unitaire</th>
+                                <th>Quantité</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="product-info" data-label="Produit">
-                                    <img src="http://googleusercontent.com/image_collection/image_retrieval/15023324794034564413_0" alt="Crème">
-                                    <span>Crème Hydratante Dermo</span>
-                                </td>
-                                <td data-label="Prix Unitaire">65.00 DT</td>
-                                <td data-label="Quantité"><input type="number" value="1" min="1" class="qty-input"></td>
-                                <td class="item-total" data-label="Total">65.00 DT</td>
-                                <td data-label="Action"><a href="#" class="remove-btn"><i class="fas fa-times-circle"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="product-info" data-label="Produit">
-                                    <img src="http://googleusercontent.com/image_collection/image_retrieval/12704289731101786645_0" alt="Vitamines">
-                                    <span>Complément Vitamines B12</span>
-                                </td>
-                                <td data-label="Prix Unitaire">45.00 DT</td>
-                                <td data-label="Quantité"><input type="number" value="2" min="1" class="qty-input"></td>
-                                <td class="item-total" data-label="Total">90.00 DT</td>
-                                <td data-label="Action"><a href="#" class="remove-btn"><i class="fas fa-times-circle"></i></a></td>
-                            </tr>
-                        </tbody>
+                            </tbody>
                     </table>
-                </div>
-            <div class="cart-summary">
-                    <h3>Récapitulatif de Commande</h3>
-                    <div class="summary-line">
-                        <span>Sous-total des produits :</span>
-                        <span class="value">0.00 DT</span> </div>
-                    <a href="#" class="btn-primary checkout-btn">Procéder au Paiement</a>
-                    
-                    <button class="btn-secondary clear-cart-btn"><i class="fas fa-trash-alt"></i> Vider le Panier</button>
-                    
-                    <a href="index.html" class="continue-shopping">Continuer les achats</a>
                 </div>
 
                 <div class="cart-summary">
                     <h3>Récapitulatif de Commande</h3>
                     <div class="summary-line">
                         <span>Sous-total des produits :</span>
-                        <span class="value">155.00 DT</span>
-
+                        <span class="value">0.00 DT</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Frais de livraison (dès 99 DT GRATUITS) :</span>
+                        <span class="value">0.00 DT</span> 
+                    </div>
+                    <div class="summary-line total-line">
+                        <strong>Total à payer :</strong>
+                        <strong class="total-value">0.00 DT</strong>
+                    </div>
+                    
+                    <a href="#" class="btn-primary checkout-btn">Procéder au Paiement</a>
+                    
+                    <button class="btn-secondary clear-cart-btn"><i class="fas fa-trash-alt"></i> Vider le Panier</button>
+                    
+                    <a href="index.html" class="continue-shopping">Continuer les achats</a>
+                </div>
             </div>
         </div>
     </section>
