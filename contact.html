@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilaPharma : Contactez-Nous</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques à la page Contact */
+        .contact-header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--color-secondary-dark);
+            margin-bottom: 30px;
+        }
+        .contact-header h1 {
+            font-size: 36px;
+            color: var(--color-primary);
+        }
+        .contact-layout {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            padding-bottom: 50px;
+        }
+        .contact-form-container {
+            flex: 1;
+            background-color: var(--color-secondary-dark);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .contact-form-container h2 {
+            margin-top: 0;
+            text-align: left;
+            font-size: 24px;
+            color: var(--color-primary);
+        }
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--color-text-light);
+            font-size: 14px;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: var(--color-text-light);
+            font-size: 16px;
+            resize: vertical;
+        }
+        .contact-info-map {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .info-card {
+            background-color: var(--color-secondary-dark);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .info-card p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--color-text-gray);
+        }
+        .info-card i {
+            color: var(--color-primary);
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        .map-container {
+            flex-grow: 1;
+            height: 300px; /* Hauteur de la carte */
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--color-primary);
+        }
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .contact-layout {
+                flex-direction: column;
+            }
+            .contact-form-container, .contact-info-map {
+                flex: none;
+                width: 100%;
+            }
+            .map-container {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="promo-bar">
+        <div class="promo-bar-content">
+            <span>🚚 LIVRAISON GRATUITE partout en Tunisie dès 99 DT ! | Code : PHARMA10</span>
+        </div>
+    </header>
+
+    <header class="main-header">
+        <div class="container main-header-content">
+            <a href="index.html" class="logo">PhilaPharma</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="#">Produits</a></li>
+                    <li><a href="promotions.html">Promotions</a></li>
+                    <li><a href="conseils.html">Conseils</a></li>
+                    <li><a href="contact.html" class="active-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="register.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="contact-header">
+        <div class="container">
+            <h1>Nous sommes là pour vous aider</h1>
+            <p>Remplissez le formulaire ou utilisez les coordonnées ci-dessous.</p>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="container contact-layout fade-in-section">
+            
+            <div class="contact-form-container">
+                <h2>Envoyez-nous un Message</h2>
+                <form action="#" method="post" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Votre Nom Complet</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Votre Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet du Message</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Votre Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Envoyer le Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info-map">
+                <div class="info-card">
+                    <p><i class="fas fa-phone"></i> **Téléphone :** +216 XX XXX XXX</p>
+                    <p><i class="fas fa-envelope"></i> **Email :** contact@philapharma.tn</p>
+                    <p><i class="fas fa-clock"></i> **Horaires :** Lun-Sam, 9h-18h</p>
+                </div>
+                
+                <div class="map-container">
+                    <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank">
+                                            </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col about-us">
+                <h4>À Propos de PhilaPharma</h4>
+                <p>PhilaPharma est votre référence en Tunisie pour des produits de santé et de beauté certifiés.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col support">
+                <h4>Aide & Support</h4>
+                <ul>
+                    <li><a href="#">FAQ / Questions Fréquentes</a></li>
+                    <li><a href="#">Politique de Livraison</a></li>
+                    <li><a href="#">Retours & Échanges</a></li>
+                    <li><a href="#">Conditions Générales de Vente (CGV)</a></li>
+                    <li><a href="#">Suivre ma commande</a></li>
+                </ul>
+            </div>
+            <div class="footer-col newsletter">
+                <h4>Newsletter & Contact</h4>
+                <p>Recevez nos conseils santé et nos offres exclusives.</p>
+                <form action="#" method="post" class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit" class="btn-primary">S'inscrire</button>
+                </form>
+                <p class="contact-info">
+                    📞 +216 XX XXX XXX (Service Client)<br>
+                    📧 contact@philapharma.tn
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                 <p>&copy; 2025 PhilaPharma. Tous droits réservés.</p>
+                 <div class="payment-icons">
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                 </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script> 
+</body>
+</html>
