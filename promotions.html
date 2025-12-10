@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilaPharma : Nos Promotions Exclusives</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques à la page Promotions */
+        .page-header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--color-secondary-dark);
+            margin-bottom: 30px;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--color-primary);
+        }
+        /* Style pour les prix barrés */
+        .old-price {
+            text-decoration: line-through;
+            color: #e74c3c; /* Rouge pour le prix ancien */
+            font-size: 16px;
+            margin-right: 10px;
+            font-weight: normal;
+        }
+        .product-price.sale {
+            color: #2ecc71; /* Vert pour le prix de vente */
+            font-size: 24px;
+        }
+        .product-tag.sale-tag {
+            background-color: #e74c3c; /* Tag rouge pour la réduction */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="promo-bar">
+        <div class="promo-bar-content">
+            <span>🎉 JUSQU'À -50% SUR LA SÉLECTION HIVERNALE !</span>
+        </div>
+    </header>
+
+    <header class="main-header">
+        <div class="container main-header-content">
+            <a href="index.html" class="logo">PhilaPharma</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="#">Produits</a></li>
+                    <li><a href="promotions.html" class="active-link">Promotions</a></li>
+                    <li><a href="conseils.html">Conseils</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="register.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="page-header">
+        <div class="container">
+            <h1>Nos Promotions du Moment !</h1>
+            <p>Profitez de nos offres exclusives avant rupture de stock.</p>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="container fade-in-section">
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://via.placeholder.com/300x300/4F443A/FFFFFF?text=Cr%C3%A8me+Promo');">
+                        <span class="product-tag sale-tag">-30%</span>
+                    </div>
+                    <h3>Soin Réparateur Nuit</h3>
+                    <p class="product-description">Régénère la peau en profondeur pendant le sommeil.</p>
+                    <div class="price-action">
+                        <span class="old-price">90.00 DT</span>
+                        <span class="product-price sale">63.00 DT</span>
+                        <a href="#" data-product-id="P101" class="btn-add-to-cart">Ajouter <i class="fas fa-cart-plus"></i></a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://via.placeholder.com/300x300/3A544C/FFFFFF?text=Shampoing+Promo');">
+                        <span class="product-tag sale-tag">-20%</span>
+                    </div>
+                    <h3>Shampoing Anti-Chute</h3>
+                    <p class="product-description">Formule renforcée pour des cheveux plus forts et denses.</p>
+                    <div class="price-action">
+                        <span class="old-price">40.00 DT</span>
+                        <span class="product-price sale">32.00 DT</span>
+                        <a href="#" data-product-id="P102" class="btn-add-to-cart">Ajouter <i class="fas fa-cart-plus"></i></a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://via.placeholder.com/300x300/5A3F5A/FFFFFF?text=Compl%C3%A9ment+Promo');">
+                        <span class="product-tag sale-tag">2+1 GRATUIT</span>
+                    </div>
+                    <h3>Lot Minceur 3 Mois</h3>
+                    <p class="product-description">Cure complète pour accompagner votre objectif minceur.</p>
+                    <div class="price-action">
+                        <span class="old-price">180.00 DT</span>
+                        <span class="product-price sale">120.00 DT</span>
+                        <a href="#" data-product-id="P103" class="btn-add-to-cart">Ajouter <i class="fas fa-cart-plus"></i></a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://via.placeholder.com/300x300/3A4454/FFFFFF?text=Solaire+Promo');">
+                        <span class="product-tag sale-tag">Fin de Série</span>
+                    </div>
+                    <h3>Lait Solaire Corps</h3>
+                    <p class="product-description">Protection SPF30, fini non gras et résistant à l'eau.</p>
+                    <div class="price-action">
+                        <span class="old-price">60.00 DT</span>
+                        <span class="product-price sale">39.00 DT</span>
+                        <a href="#" data-product-id="P104" class="btn-add-to-cart">Ajouter <i class="fas fa-cart-plus"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col about-us">
+                <h4>À Propos de PhilaPharma</h4>
+                <p>PhilaPharma est votre référence en Tunisie pour des produits de santé et de beauté certifiés.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col support">
+                <h4>Aide & Support</h4>
+                <ul>
+                    <li><a href="#">FAQ / Questions Fréquentes</a></li>
+                    <li><a href="#">Politique de Livraison</a></li>
+                    <li><a href="#">Retours & Échanges</a></li>
+                    <li><a href="#">Conditions Générales de Vente (CGV)</a></li>
+                    <li><a href="#">Suivre ma commande</a></li>
+                </ul>
+            </div>
+            <div class="footer-col newsletter">
+                <h4>Newsletter & Contact</h4>
+                <p>Recevez nos conseils santé et nos offres exclusives.</p>
+                <form action="#" method="post" class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit" class="btn-primary">S'inscrire</button>
+                </form>
+                <p class="contact-info">
+                    📞 +216 XX XXX XXX (Service Client)<br>
+                    📧 contact@philapharma.tn
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                 <p>&copy; 2025 PhilaPharma. Tous droits réservés.</p>
+                 <div class="payment-icons">
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                 </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script> 
+</body>
+</html>
