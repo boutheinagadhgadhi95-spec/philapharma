@@ -2,18 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- UTILS : Gestion du localStorage pour la persistance ---
     
-    // Fonction pour charger le panier depuis localStorage
     const loadCart = () => {
         const cartData = localStorage.getItem('philaPharmaCart');
         return cartData ? JSON.parse(cartData) : [];
     };
 
-    // Fonction pour sauvegarder le panier dans localStorage
     const saveCart = (cart) => {
         localStorage.setItem('philaPharmaCart', JSON.stringify(cart));
     };
 
-    // Fonction pour mettre à jour le compteur du panier (Header Icon)
     const updateCartCount = (cart) => {
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         const cartCountElements = document.querySelectorAll('.cart-count');
@@ -23,28 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return totalItems;
     };
 
-
     let cart = loadCart();
     updateCartCount(cart);
 
-    // 1. DYNAMIQUE D'AJOUTER AU PANIER (sur index/produits/promotions)
+    // 1. DYNAMIQUE D'AJOUTER AU PANIER
     const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault(); 
             
-            // Récupération des données du produit (simulées)
             const card = e.target.closest('.product-card');
             if (!card) return;
 
             const productId = e.target.getAttribute('data-product-id');
             const name = card.querySelector('h3').textContent;
-            // Extrait le prix (ex: 65.00 DT -> 65.00)
             const priceText = card.querySelector('.product-price').textContent.replace(' DT', '').replace(',', '.').trim();
             const price = parseFloat(priceText);
             
-            // Gestion de l'ajout/mise à jour
             const existingItem = cart.find(item => item.id === productId);
 
             if (existingItem) {
@@ -56,26 +49,42 @@ document.addEventListener('DOMContentLoaded', () => {
             saveCart(cart);
             updateCartCount(cart);
 
-            // Feedback visuel
             e.target.innerHTML = 'Ajouté ! <i class="fas fa-check"></i>';
             setTimeout(() => {
                 e.target.innerHTML = 'Ajouter <i class="fas fa-cart-plus"></i>';
             }, 1000);
-            
-            console.log(`Produit ${name} ajouté. Nouveau total: ${updateCartCount(cart)}`);
         });
     });
 
 
-    // 2. DYNAMIQUE D'AFFICHAGE DU PANIER (sur cart.html uniquement)
+    // 2. DYNAMIQUE D'AFFICHAGE ET GESTION DU PANIER (sur cart.html uniquement)
     const cartTableBody = document.querySelector('.cart-table tbody');
     const cartSummary = document.querySelector('.cart-summary');
 
     if (cartTableBody && cartSummary) {
         
-        // Fonction principale de rendu
+        const updateSummary = () => {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal >= 99 ? 0 : 7.00; 
+            const total = subtotal + shipping;
+
+            const subtotalEl = cartSummary.querySelector('.summary-line:nth-child(1) .value');
+            const shippingEl = cartSummary.querySelector('.summary-line:nth-child(2) .value');
+            const totalEl = cartSummary.querySelector('.total-value');
+            
+            if(subtotalEl) subtotalEl.textContent = `${subtotal.toFixed(2)} DT`;
+            
+            if(shippingEl) {
+                shippingEl.textContent = shipping === 0 ? 'GRATUITS' : `${shipping.toFixed(2)} DT`;
+                shippingEl.classList.toggle('free-shipping', shipping === 0);
+            }
+            
+            if(totalEl) totalEl.textContent = `${total.toFixed(2)} DT`;
+
+            updateCartCount(cart);
+        };
+        
         const renderCart = () => {
-            // Affiche le contenu dans le tableau (tbody)
             cartTableBody.innerHTML = '';
             
             if (cart.length === 0) {
@@ -106,45 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSummary();
         };
 
-        // Fonction pour mettre à jour le résumé (Total)
-        const updateSummary = () => {
-            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const shipping = subtotal >= 99 ? 0 : 7.00; // Livraison gratuite dès 99 DT
-            const total = subtotal + shipping;
-
-            // Mise à jour des éléments dans la carte de résumé
-            const subtotalEl = cartSummary.querySelector('.summary-line:nth-child(1) .value');
-            const shippingEl = cartSummary.querySelector('.summary-line:nth-child(2) .value');
-            const totalEl = cartSummary.querySelector('.total-value');
-            
-            if(subtotalEl) subtotalEl.textContent = `${subtotal.toFixed(2)} DT`;
-            
-            if(shippingEl) {
-                shippingEl.textContent = shipping === 0 ? 'GRATUITS' : `${shipping.toFixed(2)} DT`;
-                if (shipping === 0) {
-                    shippingEl.classList.add('free-shipping');
-                } else {
-                    shippingEl.classList.remove('free-shipping');
-                }
-            }
-            
-            if(totalEl) totalEl.textContent = `${total.toFixed(2)} DT`;
-
-            updateCartCount(cart);
-        };
-        
-        // --- ÉVÉNEMENTS DANS LE PANIER ---
-
-        // Gestion de la modification de quantité et de la suppression
+        // GESTION DU CHANGEMENT DE QUANTITÉ
         cartTableBody.addEventListener('change', (e) => {
             if (e.target.classList.contains('qty-input')) {
                 const productId = e.target.getAttribute('data-product-id');
                 const newQuantity = parseInt(e.target.value);
                 
-                if (newQuantity <= 0) {
-                    e.target.value = 1; // Empêche d'avoir 0
-                    return;
-                }
+                if (newQuantity <= 0) { e.target.value = 1; return; }
                 
                 const item = cart.find(i => i.id === productId);
                 if (item) {
@@ -155,20 +132,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // GESTION DE LA SUPPRESSION D'UN ARTICLE
         cartTableBody.addEventListener('click', (e) => {
             if (e.target.closest('.remove-btn')) {
                 e.preventDefault();
                 const productId = e.target.closest('.remove-btn').getAttribute('data-product-id');
-                
-                // Filtre pour garder tous les éléments SAUF celui à supprimer
                 cart = cart.filter(item => item.id !== productId);
-                
                 saveCart(cart);
-                renderCart(); // Re-rend le tableau
+                renderCart();
             }
         });
+        
+        // GESTION DU BOUTON "VIDER LE PANIER" (SUPPRESSION TOTALE)
+        const clearCartButton = document.querySelector('.clear-cart-btn');
 
-        // Premier appel pour afficher le panier au chargement de la page
+        if (clearCartButton) {
+            clearCartButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (confirm('Êtes-vous sûr de vouloir vider l\'intégralité de votre panier ?')) {
+                    cart = [];
+                    saveCart(cart);
+                    renderCart(); 
+                    alert('Votre panier a été vidé.');
+                }
+            });
+        }
+
         renderCart(); 
     }
 
@@ -185,7 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     sections.forEach(section => {
-        // La classe fade-in-section est ajoutée dans le HTML, nous observons directement
         observer.observe(section);
     });
 });
