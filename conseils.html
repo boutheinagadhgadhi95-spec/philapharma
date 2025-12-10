@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilaPharma : Nos Conseils Santé et Beauté</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques à la page Conseils/Blog */
+        .blog-header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--color-secondary-dark);
+            margin-bottom: 30px;
+        }
+        .blog-header h1 {
+            font-size: 36px;
+            color: var(--color-primary);
+        }
+        .article-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            padding-bottom: 50px;
+        }
+        .article-card {
+            background-color: var(--color-secondary-dark);
+            border-radius: 8px;
+            overflow: hidden;
+            width: calc(33% - 20px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+        .article-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .article-content {
+            padding: 15px;
+        }
+        .article-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--color-text-light);
+        }
+        .article-content p {
+            font-size: 14px;
+            color: var(--color-text-gray);
+            margin-bottom: 15px;
+        }
+        .read-more {
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+        @media (max-width: 900px) {
+            .article-card {
+                width: calc(50% - 15px);
+            }
+        }
+        @media (max-width: 600px) {
+            .article-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="promo-bar">
+        <div class="promo-bar-content">
+            <span>🚚 LIVRAISON GRATUITE partout en Tunisie dès 99 DT ! | Code : PHARMA10</span>
+        </div>
+    </header>
+
+    <header class="main-header">
+        <div class="container main-header-content">
+            <a href="index.html" class="logo">PhilaPharma</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="#">Produits</a></li>
+                    <li><a href="promotions.html">Promotions</a></li>
+                    <li><a href="conseils.html" class="active-link">Conseils</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="register.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="blog-header">
+        <div class="container">
+            <h1>Nos Conseils Santé et Beauté</h1>
+            <p>Retrouvez les astuces de nos experts pour prendre soin de vous au quotidien.</p>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="container fade-in-section">
+            <div class="article-grid">
+                
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('https://via.placeholder.com/400x200/5A3F5A/FFFFFF?text=Routine+Peau+S%C3%A8che');"></div>
+                    <div class="article-content">
+                        <h3>La routine idéale pour les peaux sèches</h3>
+                        <p>Découvrez les ingrédients clés pour une hydratation profonde cet hiver.</p>
+                        <a href="#" class="read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('https://via.placeholder.com/400x200/3A4454/FFFFFF?text=Bienfaits+Vitamines');"></div>
+                    <div class="article-content">
+                        <h3>Vitamines: lesquelles choisir pour booster votre énergie?</h3>
+                        <p>Un guide complet sur les compléments alimentaires essentiels à l'organisme.</p>
+                        <a href="#" class="read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('https://via.placeholder.com/400x200/4F443A/FFFFFF?text=Protection+Solaire');"></div>
+                    <div class="article-content">
+                        <h3>Mythes et réalités sur la protection solaire</h3>
+                        <p>Même en hiver, le SPF est crucial. On vous explique pourquoi.</p>
+                        <a href="#" class="read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col about-us">
+                <h4>À Propos de PhilaPharma</h4>
+                <p>PhilaPharma est votre référence en Tunisie pour des produits de santé et de beauté certifiés.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col support">
+                <h4>Aide & Support</h4>
+                <ul>
+                    <li><a href="#">FAQ / Questions Fréquentes</a></li>
+                    <li><a href="#">Politique de Livraison</a></li>
+                    <li><a href="#">Retours & Échanges</a></li>
+                    <li><a href="#">Conditions Générales de Vente (CGV)</a></li>
+                    <li><a href="#">Suivre ma commande</a></li>
+                </ul>
+            </div>
+            <div class="footer-col newsletter">
+                <h4>Newsletter & Contact</h4>
+                <p>Recevez nos conseils santé et nos offres exclusives.</p>
+                <form action="#" method="post" class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit" class="btn-primary">S'inscrire</button>
+                </form>
+                <p class="contact-info">
+                    📞 +216 XX XXX XXX (Service Client)<br>
+                    📧 contact@philapharma.tn
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                 <p>&copy; 2025 PhilaPharma. Tous droits réservés.</p>
+                 <div class="payment-icons">
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                 </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script> 
+</body>
+</html>
